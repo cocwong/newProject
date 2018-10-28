@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <com.example.cocwong.test.view.SquareHeightImageView
+        android:id="@+id/img_left"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:scaleType="centerInside" />
+
+    <TextView
+        style="@style/TextView"
+        android:id="@+id/title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="@color/c303030"
+        android:textSize="16sp" />
+
+    <com.example.cocwong.test.view.SquareHeightImageView
+        android:id="@+id/img_right"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:scaleType="centerInside" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_gravity="bottom"
+        android:background="@color/ce5e5e5" />
+</merge>

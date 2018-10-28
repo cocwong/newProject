@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Test</string>
+    <string name="latest">最新</string>
+    <string name="image">图说</string>
+    <string name="raise">养鹅</string>
+    <string name="find">发现</string>
+    <string name="mine">我的</string>
+
+    <string name="use_talk">用鹅说 知道多</string>
+</resources>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorAccent">#ff5ba997</color>
+    <color name="colorPrimary">#ff5ba997</color>
+    <color name="colorPrimaryDark">#ff000000</color>
+    <color name="c1e90ff">#ff1e90ff</color>
+    <color name="c2c2c2c">#ff2c2c2c</color>
+    <color name="c303030">#ff303030</color>
+    <color name="c454545">#ff454545</color>
+    <color name="c459481">#ff459481</color>
+    <color name="c606060">#ff606060</color>
+    <color name="c777777">#ff777777</color>
+    <color name="c787878">#ff787878</color>
+    <color name="c7d26cd">#ff7d26cd</color>
+    <color name="c7f7f7f">#ff7f7f7f</color>
+    <color name="c909090">#ff909090</color>
+    <color name="ca9a9a9">#ffa9a9a9</color>
+    <color name="cardview_dark_background">#ff424242</color>
+    <color name="cardview_light_background">#ffffffff</color>
+    <color name="cardview_shadow_end_color">#03000000</color>
+    <color name="cardview_shadow_start_color">#37000000</color>
+    <color name="cb8b8b8">#ffb8b8b8</color>
+    <color name="cc9c9c9">#ffc9c9c9</color>
+    <color name="cd8d8d8">#ffd8d8d8</color>
+    <color name="cdae7e3">#ffdae7e3</color>
+    <color name="ce5e5e5">#ffe5e5e5</color>
+    <color name="ce7f2f0">#ffe7f2f0</color>
+    <color name="cf5f5f7">#fff5f5f7</color>
+    <color name="cf6f6f6">#fff6f6f6</color>
+    <color name="cfe4a4a">#fffe4a4a</color>
+    <color name="cff7f00">#ffff7f00</color>
+    <color name="corner_color">#ff00ff00</color>
+    <color name="gtgreen">#ff5ba997</color>
+    <color name="halfblack">#80000000</color>
+
+</resources>
