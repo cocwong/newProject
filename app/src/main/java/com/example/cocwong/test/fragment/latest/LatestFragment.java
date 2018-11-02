@@ -1,21 +1,24 @@
 package com.example.cocwong.test.fragment.latest;
 
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.PagerSnapHelper;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SnapHelper;
+import android.view.View;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.example.cocwong.test.R;
 import com.example.cocwong.test.adapter.LatestAdapter;
 import com.example.cocwong.test.base.BaseFragment;
+import com.example.cocwong.test.base.Callback;
 import com.example.cocwong.test.bean.LatestBean;
 import com.example.cocwong.test.contract.latest.LatestContract;
-import com.example.cocwong.test.glide.GlideApp;
+import com.example.cocwong.test.util.AppHelper;
+import com.example.cocwong.test.util.DensityHelper;
+import com.example.cocwong.test.view.LatestRecyclerView;
 import com.example.cocwong.test.view.TitleBar;
 
-public class LatestFragment extends BaseFragment<LatestPresenter> implements LatestContract.View, TitleBar.OnTitleClickListener {
+public class LatestFragment extends BaseFragment<LatestPresenter> implements LatestContract.View, TitleBar.OnTitleClickListener, Callback {
     private TitleBar titleBar;
-    private RecyclerView recycler;
+    private LatestRecyclerView recycler;
+    private TextView tvTag, tvTitle, tvContent;
     private LatestAdapter adapter;
 
     @Override
@@ -29,6 +32,9 @@ public class LatestFragment extends BaseFragment<LatestPresenter> implements Lat
         titleBar = findViewById(R.id.title_latest);
         titleBar.setOnTitleClickListener(this);
         recycler = findViewById(R.id.recycler_latest);
+        tvTag = findViewById(R.id.latest_tag);
+        tvTitle = findViewById(R.id.latest_desc_title);
+        tvContent = findViewById(R.id.latest_desc_content);
     }
 
     @Override
@@ -39,11 +45,9 @@ public class LatestFragment extends BaseFragment<LatestPresenter> implements Lat
     @Override
     protected void init() {
         super.init();
-        SnapHelper helper = new PagerSnapHelper();
-        helper.attachToRecyclerView(recycler);
-        recycler.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-        adapter = new LatestAdapter(GlideApp.with(this));
+        adapter = new LatestAdapter(this);
         recycler.setAdapter(adapter);
+        recycler.setCallback(this);
         presenter.getLatest(0);
     }
 
@@ -54,11 +58,30 @@ public class LatestFragment extends BaseFragment<LatestPresenter> implements Lat
 
     @Override
     public void onRightClick() {
-
     }
 
     @Override
     public void updateAdapter(LatestBean bean) {
         adapter.updateData(bean.getList());
+        RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) tvTag.getLayoutParams();
+        params.topMargin = titleBar.getHeight() + (int) DensityHelper.dp2Px(getContext(), 10) + (int) (AppHelper.getScreenHeight() * LatestRecyclerView.itemScale) - tvTag.getHeight() / 2;
+        params.leftMargin = AppHelper.getScreenWidth() / 2 + (int) (AppHelper.getScreenWidth() * LatestRecyclerView.itemScale) / 2 - tvTag.getWidth() / 2;
+    }
+
+    @Override
+    public void showNext(LatestBean.ListBean bean) {
+        tvTag.setVisibility(View.VISIBLE);
+        tvTitle.setVisibility(View.VISIBLE);
+        tvContent.setVisibility(View.VISIBLE);
+        tvTag.setText(bean.getType());
+        tvTitle.setText(bean.getTitle());
+        tvContent.setText(bean.getSummary());
+    }
+
+    @Override
+    public void callback(Object obj) {
+        int position = (int) obj;
+        System.out.println("position:" + position);
+        showNext(adapter.getItemByPosition(position));
     }
 }

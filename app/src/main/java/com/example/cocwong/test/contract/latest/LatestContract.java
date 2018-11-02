@@ -15,6 +15,8 @@ public interface LatestContract {
 
     interface View extends BaseView {
         void updateAdapter(LatestBean bean);
+
+        void showNext(LatestBean.ListBean bean);
     }
 
     abstract class Presenter extends BasePresenter<LatestModel, LatestFragment> {

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <com.example.cocwong.test.view.TitleBar
         android:id="@+id/title_latest"
@@ -13,8 +12,31 @@
         app:img_right="@drawable/sel_latest_history"
         app:text="@string/use_talk" />
 
-    <android.support.v7.widget.RecyclerView
+    <com.example.cocwong.test.view.LatestRecyclerView
         android:id="@+id/recycler_latest"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:layout_below="@id/title_latest" />
+
+    <TextView
+        android:id="@+id/latest_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/latest_tag_bg"
+        android:rotation="340"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/latest_desc_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/latest_tag"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/latest_desc_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/latest_desc_title"
+        android:visibility="gone" />
+</RelativeLayout>

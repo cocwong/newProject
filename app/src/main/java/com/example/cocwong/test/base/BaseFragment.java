@@ -94,4 +94,12 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
     public void showMessage(String message) {
         Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    public void onDestroy() {
+        if (presenter != null) {
+            presenter.detach();
+        }
+        super.onDestroy();
+    }
 }
